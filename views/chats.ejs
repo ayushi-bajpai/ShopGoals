@@ -1,0 +1,26 @@
+<div style="padding: 50px; padding-top: 10px; width: 500px; line-height: 5px">
+    <% for(var i =0;i< chats.length; i++ ){ %>
+    <p style="color: brown; font-weight: bolder; font-size: 20px">Chats with buyer <%=i+1 %>:</p>
+    <div style="border: solid brown; border-width: 1px; padding: 10px; padding-top: 0px">
+        <% for(var j = 0; j < chats[i].length; j++){ %>
+
+        <% if(chats[i][j].from == 'buyer'){ %>
+        <div style="margin:10px; color: rgb(103, 17, 184);"><%=chats[i][j].message %></div><br>
+        <% }else{ %>
+        <div style="margin:10px; float: right; color: rgb(92, 173, 10)"><%=chats[i][j].message %></div><br>
+        <% } %>
+
+        <% } %>
+    </div>
+    <form method="post" style="margin-left: 275px; margin-top:10px">
+        <input name="message" />
+        <input type="hidden" name="buyerid" value="<%=chats[i][0].buyerId %>" />
+        <button type="submit">reply</button>
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <% } %>
+</div>

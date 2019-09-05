@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <%- include('header') %>
+    
+
+    <div>
+        <img src="Logo.png" style="height: 200px; width: 200px; margin-left: 550px; margin-top: 50px"/>
+        <h1 class="he" style="text-align: center; color: rgb(73, 199, 73); font-family: cursive">Welcome to ShopGoals</h1>
+        <br><br>
+        <h3>
+            <p style="padding-left: 400px; color: rgb(52, 202, 157); font-family: sans-serif">Here are some ads for you,
+                go checkout!!!</p>
+        </h3>
+        <br>
+
+        <table border="1" style="margin-left: 600px; ">
+            <% if(ads.length) { %>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            <% for(var i = 0; i < ads.length; i++) { %>
+            <tr>
+                <td><%=i+1 %></td>
+                <td><%=ads[i].name %></td>
+                <td><%=ads[i].price %></td>
+                <td>
+                    <a href="/ad/<%=ads[i].id %>">
+                        show
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+        <% }else{ %>
+        <h4 style="margin-left: 420px; color:chocolate">--- Oops, no ads!!, please post some ads ---</h4>
+        <% } %>
+</body>
+
+</html>

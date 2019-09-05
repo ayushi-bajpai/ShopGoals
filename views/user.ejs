@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div style="background: cadetblue">
+    <h1>
+        <p style="text-align: center; color:rgb(177, 17, 52)">Welcome user, post a free Ad</p>
+    </h1>
+
+    <form method="post" style="text-align: center">
+        <input name="name" placeholder="Name of ad" required />
+        <br /><br />
+        <input name="price" placeholder="Price: Rs. " required />
+        <br><br>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+    <br>
+</div><br><br>
+    <h1>
+        <p style="text-align: center; color:rgb(78, 11, 133)">All of your posted Ads</p>
+    </h1>
+    <% if(ads.length) { %>
+    <table border="1" style="margin-left: 500px">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <% for(var i = 0; i < ads.length; i++) { %>
+        <tr>
+            <td>
+                <h4><%=i+1 %></h4>
+            </td>
+            <td>
+                <h4><%=ads[i].name %></h4>
+            </td>
+            <td>
+                <h5><%=ads[i].price %></h5>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary">
+                    <a href="/ad/<%=ads[i].id %>" style="color: white">
+                        show
+                    </a>
+                </button>
+                <button type="button" class="btn btn-success">
+                    <a href="/user/ad/<%=ads[i].id %>/chats" style="color: white">
+                        show chats
+                    </a>
+                </button>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    <% }else{ %>
+    <h4>
+        <p style="text-align: center; color:rgb(158, 94, 211)">No ads yet, post an Ad !!</p>
+    </h4>
+    <% } %>
+</body>
+
+</html>
